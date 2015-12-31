@@ -1,0 +1,30 @@
+{
+  "name": "pavlakis/slim-behat-extension",
+  "type": "behat-extension",
+  "description": "Slim 3 extension for Behat",
+  "keywords": ["slim", "behat", "extension", "bdd"],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Antonis Pavlakis",
+      "email": "adoni@pavlakis.info",
+      "homepage": "http://pavlakis.info"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Pavlakis\\Slim\\Behat\\": "src"
+    }
+  },
+  "require": {
+    "php": ">=5.4",
+    "behat/behat": "~3.0",
+    "behat/mink-browserkit-driver": "~1.2"
+  },
+  "require-dev": {
+    "phpspec/phpspec": "~2.1",
+    "symfony/symfony": "~2.6",
+    "behat/mink-extension": "~2.0",
+    "slim/slim": "^3.0"
+  }
+}

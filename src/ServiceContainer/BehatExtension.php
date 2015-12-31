@@ -25,7 +25,7 @@ class BehatExtension implements Extension
     public function initialize(ExtensionManager $extensionManager)
     {
         if (null !== $minkExtension = $extensionManager->getExtension('mink')) {
-            $minkExtension->registerDriverFactory(new LaravelFactory);
+            $minkExtension->registerDriverFactory(new SlimFactory);
         }
     }
 
@@ -62,19 +62,19 @@ class BehatExtension implements Extension
      */
     public function load(ContainerBuilder $container, array $config)
     {
-        $app = $this->loadLaravel($container, $config);
+        $app = $this->loadSlim($container, $config);
 
         $this->loadInitializer($container, $app);
     }
 
     /**
-     * Boot up Laravel.
+     * Boot up Slim.
      *
      * @param ContainerBuilder $container
      * @param array            $config
      * @return mixed
      */
-    private function loadLaravel(ContainerBuilder $container, array $config)
+    private function loadSlim(ContainerBuilder $container, array $config)
     {
         $slim = new SlimBooter(
             $container->getParameter('paths.base'), $config['config_file'], $config['dependencies_file'],

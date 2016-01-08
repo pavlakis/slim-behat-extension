@@ -96,10 +96,7 @@ class BehatExtension implements Extension
     {
         $definition = new Definition('Pavlakis\Slim\Behat\Context\KernelAwareInitializer', [$app]);
 
-        $definition->addTag(EventDispatcherExtension::SUBSCRIBER_TAG, ['priority' => 0]);
-        $definition->addTag(ContextExtension::INITIALIZER_TAG, ['priority' => 0]);
-
-        $container->setDefinition('laravel.initializer', $definition);
+        $container->setDefinition('slim.initializer', $definition);
     }
 
 }

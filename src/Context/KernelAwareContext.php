@@ -9,9 +9,9 @@ interface KernelAwareContext extends Context
     /**
      * Set the kernel instance on the context.
      *
-     * @param HttpKernelInterface $kernel
+     * @param \Slim\App $kernel
      * @return mixed
      */
-    public function setApp(HttpKernelInterface $kernel);
+    public function setApp(\Slim\App $kernel);
 
 }

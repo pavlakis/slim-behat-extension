@@ -1,21 +1,20 @@
 <?php namespace Pavlakis\Slim\Behat\Context;
 
-use Symfony\Component\HttpKernel\HttpKernelInterface;
-
 trait App
 {
     /**
      * The Slim application.
      *
-     * @var HttpKernelInterface
+     * @var \Slim\App
      */
     protected $app;
+
     /**
      * Set the application.
      *
-     * @param HttpKernelInterface $app
+     * @param \Slim\App $app
      */
-    public function setApp(HttpKernelInterface $app)
+    public function setApp(\Slim\App $app)
     {
         $this->app = $app;
     }

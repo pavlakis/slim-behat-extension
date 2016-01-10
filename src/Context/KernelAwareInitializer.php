@@ -7,7 +7,7 @@ use Pavlakis\Slim\Behat\ServiceContainer\SlimBooter;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpKernel\HttpKernelInterface;
 
-class KernelAwareInitializer implements EventSubscriberInterface, ContextInitializer
+class KernelAwareInitializer implements ContextInitializer
 {
 
     /**
@@ -27,9 +27,9 @@ class KernelAwareInitializer implements EventSubscriberInterface, ContextInitial
     /**
      * Construct the initializer.
      *
-     * @param HttpKernelInterface $kernel
+     * @param \Slim\App $kernel
      */
-    public function __construct(HttpKernelInterface $kernel)
+    public function __construct(\Slim\App $kernel)
     {
         $this->kernel = $kernel;
     }
@@ -51,7 +51,7 @@ class KernelAwareInitializer implements EventSubscriberInterface, ContextInitial
     {
         $this->context = $context;
 
-        $this->setAppOnContext($this->kernel);
+        $this->setAppOnContext();
     }
 
     /**
@@ -71,7 +71,7 @@ class KernelAwareInitializer implements EventSubscriberInterface, ContextInitial
     {
         $this->kernel->flush();
 
-        $slim = new SlimBooter($this->kernel->basePath(), $this->kernel->environmentFile());
+        $slim = new SlimBooter($this->kernel->basePath());
 
         $this->context->getSession('slim')->getDriver()->reboot($this->kernel = $slim->boot());
 

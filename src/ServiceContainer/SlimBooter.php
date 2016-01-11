@@ -47,7 +47,7 @@ class SlimBooter
      * @param string $middlewareFile
      * @param string $routesFile
      */
-    public function __construct($basePath, $configFile = 'settings.php', $dependencies = 'dependencies.php', $middlewareFile = 'middleware.php', $routesFile = 'routes.php')
+    public function __construct($basePath, $configFile = null, $dependencies = null, $middlewareFile = null, $routesFile = null)
     {
         $this->basePath         = $basePath;
         $this->configFile       = $configFile;
@@ -116,19 +116,19 @@ class SlimBooter
 
 
         // add dependencies
-        if ($this->assertAppFileExists($this->getDependenciesFile())) {
+        if ($this->getDependenciesFile() && $this->assertAppFileExists($this->getDependenciesFile())) {
 
             require $this->basePath() . '/' . $this->getDependenciesFile();
         }
 
         // Register middleware
-        if ($this->assertAppFileExists($this->getMiddlewareFile())) {
+        if ($this->getMiddlewareFile() && $this->assertAppFileExists($this->getMiddlewareFile())) {
 
             require $this->basePath() . '/' . $this->getMiddlewareFile();
         }
 
         // Register routes
-        if ($this->assertAppFileExists($this->getRoutesFile())) {
+        if ($this->getRoutesFile() && $this->assertAppFileExists($this->getRoutesFile())) {
 
             require $this->basePath() . '/' . $this->getRoutesFile();
         }

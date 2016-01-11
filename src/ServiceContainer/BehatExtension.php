@@ -44,16 +44,16 @@ class BehatExtension implements Extension
         $builder
             ->children()
             ->scalarNode('config_file')
-            ->defaultValue('app/settings.php')
+            ->defaultValue('../../app/settings.php')
             ->end()
             ->scalarNode('dependencies_file')
-            ->defaultValue('app/dependencies.php')
+            ->defaultValue('../../app/dependencies.php')
             ->end()
             ->scalarNode('middleware_file')
-            ->defaultValue('app/middleware.php')
+            ->defaultValue('../../app/middleware.php')
             ->end()
             ->scalarNode('routes_file')
-            ->defaultValue('app/routes.php');
+            ->defaultValue('../../app/routes.php');
     }
 
     /**

@@ -63,19 +63,4 @@ class KernelAwareInitializer implements ContextInitializer
             $this->context->setApp($this->kernel);
         }
     }
-
-    /**
-     * After each scenario, reboot the kernel.
-     */
-    public function rebootKernel()
-    {
-        $this->kernel->flush();
-
-        $slim = new SlimBooter($this->kernel->basePath());
-
-        $this->context->getSession('slim')->getDriver()->reboot($this->kernel = $slim->boot());
-
-        $this->setAppOnContext();
-    }
-
 }

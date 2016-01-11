@@ -47,13 +47,13 @@ class BehatExtension implements Extension
             ->defaultValue('../../app/settings.php')
             ->end()
             ->scalarNode('dependencies_file')
-            ->defaultValue('../../app/dependencies.php')
+            ->defaultValue(null)
             ->end()
             ->scalarNode('middleware_file')
-            ->defaultValue('../../app/middleware.php')
+            ->defaultValue(null)
             ->end()
             ->scalarNode('routes_file')
-            ->defaultValue('../../app/routes.php');
+            ->defaultValue(null);
     }
 
     /**

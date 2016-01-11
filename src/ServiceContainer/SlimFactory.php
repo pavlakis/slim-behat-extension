@@ -55,7 +55,7 @@ class SlimFactory implements DriverFactory
     {
         if ( ! class_exists('Behat\Mink\Driver\BrowserKitDriver')) {
             throw new RuntimeException(
-                'Install MinkBrowserKitDriver in order to use the laravel driver.'
+                'Install MinkBrowserKitDriver in order to use the Slim 3 driver.'
             );
         }
     }

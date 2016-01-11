@@ -1,7 +1,6 @@
 <?php namespace Pavlakis\Slim\Behat\ServiceContainer;
 
 use Behat\Behat\Context\ServiceContainer\ContextExtension;
-use Behat\Testwork\EventDispatcher\ServiceContainer\EventDispatcherExtension;
 use Behat\Testwork\ServiceContainer\Extension;
 use Behat\Testwork\ServiceContainer\ExtensionManager;
 use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
@@ -90,7 +89,7 @@ class BehatExtension implements Extension
      * Load the initializer.
      *
      * @param ContainerBuilder    $container
-     * @param HttpKernelInterface $app
+     * @param \Slim\App $app
      */
     private function loadInitializer(ContainerBuilder $container, $app)
     {

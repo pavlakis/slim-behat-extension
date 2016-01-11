@@ -10,10 +10,10 @@ class KernelDriver extends BrowserKitDriver
     /**
      * Create a new KernelDriver.
      *
-     * @param HttpKernelInterface $app
-     * @param string|null         $baseUrl
+     * @param \Slim\App     $app
+     * @param string|null   $baseUrl
      */
-    public function __construct(HttpKernelInterface $app, $baseUrl = null)
+    public function __construct(\Slim\App $app, $baseUrl = null)
     {
         parent::__construct(new Client($app), $baseUrl);
     }
@@ -21,7 +21,7 @@ class KernelDriver extends BrowserKitDriver
     /**
      * Refresh the driver.
      *
-     * @param HttpKernelInterface $app
+     * @param \Slim\App $app
      * @return KernelDriver
      */
     public function reboot($app)

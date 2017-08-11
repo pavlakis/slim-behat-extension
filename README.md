@@ -5,7 +5,7 @@
 ## Can install it with composer through packagist
 
 ```
- composer install pavlakis/slim-behat-extension
+ composer require --dev pavlakis/slim-behat-extension
 ```
 
 ## On your behat.yml file add the extension within the _extensions_ section

@@ -14,12 +14,37 @@
     Pavlakis\Slim\Behat: ~
 ```
 
-The above is the minimum setup as long as you are using [Akrabat's Slim 3 Skeleton](https://github.com/akrabat/slim3-skeleton) with the default location for `settings.php` at `app/settings.php`
+The above is the minimum setup as long as you are using [Akrabat's Slim 3 Skeleton](https://github.com/akrabat/slim3-skeleton) with the default location for `settings.php` at `app/settings.php` and `behat.yml` inside `tests/behat`.
 
-Alternatively, pass the location of the config_file
+This is the expected directory structure for the default configuration:
 
 ```
-  config_file: ../../app/configs/settings_test.php
+- my_app_dir
+|___ app
+    |_______ settings.php
+    |_______ dependencies.php
+|___ tests
+    |_________ behat
+    	       |_____ behat.yml
+
+
+```
+
+If `behat.yml` is in the root folder, use the following:
+
+```yml
+
+default:
+  suites:
+    default:
+      contexts:
+        - FeatureContext
+
+  extensions:
+    Pavlakis\Slim\Behat:
+      config_file: app/settings.php
+      dependencies_file: app/dependencies.php
+      
 ```
 
 Apart from the config (settings.php) all other parameters are optional, however you can also pass:

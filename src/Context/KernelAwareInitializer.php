@@ -1,4 +1,6 @@
-<?php namespace Pavlakis\Slim\Behat\Context;
+<?php
+
+namespace Pavlakis\Slim\Behat\Context;
 
 use Behat\Behat\Context\Context;
 use Behat\Behat\Context\Initializer\ContextInitializer;
@@ -7,6 +9,10 @@ use Pavlakis\Slim\Behat\ServiceContainer\SlimBooter;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpKernel\HttpKernelInterface;
 
+/**
+ * Class KernelAwareInitializer
+ * @package Pavlakis\Slim\Behat\Context
+ */
 class KernelAwareInitializer implements ContextInitializer
 {
 
@@ -37,7 +43,7 @@ class KernelAwareInitializer implements ContextInitializer
     /**
      * {@inheritdoc}
      */
-    public static function getSubscribedEvents()
+    public static function getSubscribedEvents(): array
     {
         return [
             ScenarioTested::AFTER => ['rebootKernel', -15]
@@ -47,7 +53,7 @@ class KernelAwareInitializer implements ContextInitializer
     /**
      * {@inheritdoc}
      */
-    public function initializeContext(Context $context)
+    public function initializeContext(Context $context): void
     {
         $this->context = $context;
 

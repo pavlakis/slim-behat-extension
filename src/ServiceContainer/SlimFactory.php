@@ -1,4 +1,6 @@
-<?php namespace Pavlakis\Slim\Behat\ServiceContainer;
+<?php
+
+namespace Pavlakis\Slim\Behat\ServiceContainer;
 
 use Behat\MinkExtension\ServiceContainer\Driver\DriverFactory;
 use RuntimeException;
@@ -6,6 +8,10 @@ use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
 use Symfony\Component\DependencyInjection\Definition;
 use Symfony\Component\DependencyInjection\Reference;
 
+/**
+ * Class SlimFactory
+ * @package Pavlakis\Slim\Behat\ServiceContainer
+ */
 class SlimFactory implements DriverFactory
 {
 

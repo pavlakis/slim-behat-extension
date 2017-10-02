@@ -1,5 +1,11 @@
-<?php namespace Pavlakis\Slim\Behat\ServiceContainer;
+<?php
 
+namespace Pavlakis\Slim\Behat\ServiceContainer;
+
+/**
+ * Class SlimBooter
+ * @package Pavlakis\Slim\Behat\ServiceContainer
+ */
 class SlimBooter
 {
 
@@ -59,9 +65,9 @@ class SlimBooter
     /**
      * Get the application's base path.
      *
-     * @return mixed
+     * @return string
      */
-    public function basePath()
+    public function basePath(): string
     {
         return $this->basePath;
     }
@@ -71,7 +77,7 @@ class SlimBooter
      *
      * @return string
      */
-    public function getConfigFile()
+    public function getConfigFile(): string
     {
         return $this->configFile;
     }
@@ -81,7 +87,7 @@ class SlimBooter
      *
      * @return string
      */
-    public function getDependenciesFile()
+    public function getDependenciesFile(): string
     {
         return $this->dependenciesFile;
     }
@@ -90,7 +96,7 @@ class SlimBooter
      *
      * @return string
      */
-    public function getMiddlewareFile()
+    public function getMiddlewareFile(): string
     {
         return $this->middlewareFile;
     }
@@ -98,7 +104,7 @@ class SlimBooter
     /**
      * @return string
      */
-    public function getRoutesFile()
+    public function getRoutesFile(): string
     {
         return $this->routesFile;
     }
@@ -106,9 +112,9 @@ class SlimBooter
     /**
      * Boot the app.
      *
-     * @return mixed
+     * @return \Slim\App
      */
-    public function boot()
+    public function boot(): \Slim\App
     {
         // Instantiate the app
         $settings = require $this->basePath() . '/' . $this->getConfigFile();
@@ -140,7 +146,7 @@ class SlimBooter
      * @param $file
      * @return bool
      */
-    private function assertAppFileExists($file)
+    private function assertAppFileExists($file): bool
     {
         return file_exists($this->basePath() . '/' . $file);
     }

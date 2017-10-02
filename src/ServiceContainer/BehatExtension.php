@@ -1,4 +1,6 @@
-<?php namespace Pavlakis\Slim\Behat\ServiceContainer;
+<?php
+
+namespace Pavlakis\Slim\Behat\ServiceContainer;
 
 use Behat\Behat\Context\ServiceContainer\ContextExtension;
 use Behat\Testwork\ServiceContainer\Extension;
@@ -7,13 +9,17 @@ use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Definition;
 
+/**
+ * Class BehatExtension
+ * @package Pavlakis\Slim\Behat\ServiceContainer
+ */
 class BehatExtension implements Extension
 {
 
     /**
      * {@inheritdoc}
      */
-    public function getConfigKey()
+    public function getConfigKey(): string
     {
         return 'slim';
     }

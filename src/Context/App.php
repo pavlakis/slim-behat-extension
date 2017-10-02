@@ -1,5 +1,11 @@
-<?php namespace Pavlakis\Slim\Behat\Context;
+<?php
 
+namespace Pavlakis\Slim\Behat\Context;
+
+/**
+ * Trait App
+ * @package Pavlakis\Slim\Behat\Context
+ */
 trait App
 {
     /**
@@ -13,17 +19,19 @@ trait App
      * Set the application.
      *
      * @param \Slim\App $app
+     * @return void
      */
-    public function setApp(\Slim\App $app)
+    public function setApp(\Slim\App $app): void
     {
         $this->app = $app;
     }
+
     /**
      * Get the application.
      *
-     * @return mixed
+     * @return \Slim\App
      */
-    public function app()
+    public function app(): \Slim\App
     {
         return $this->app;
     }

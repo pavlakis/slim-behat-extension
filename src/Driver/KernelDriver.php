@@ -1,9 +1,15 @@
-<?php namespace Pavlakis\Slim\Behat\Driver;
+<?php
+
+namespace Pavlakis\Slim\Behat\Driver;
 
 use Behat\Mink\Driver\BrowserKitDriver;
 use Symfony\Component\HttpKernel\Client;
 use Symfony\Component\HttpKernel\HttpKernelInterface;
 
+/**
+ * Class KernelDriver
+ * @package Pavlakis\Slim\Behat\Driver
+ */
 class KernelDriver extends BrowserKitDriver
 {
 
@@ -24,7 +30,7 @@ class KernelDriver extends BrowserKitDriver
      * @param \Slim\App $app
      * @return KernelDriver
      */
-    public function reboot($app)
+    public function reboot($app): KernelDriver
     {
         return $this->__construct($app);
     }

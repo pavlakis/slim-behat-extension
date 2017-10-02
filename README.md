@@ -47,12 +47,6 @@ default:
       
 ```
 
-Alternatively, pass the location of the config_file
-
-```
-  config_file: ../../app/configs/settings_test.php
-```
-
 Apart from the config (settings.php) all other parameters are optional, however you can also pass:
 
 ```

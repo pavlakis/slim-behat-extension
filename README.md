@@ -62,13 +62,70 @@ Apart from the config (settings.php) all other parameters are optional, however 
 * Include the _Pavlakis\Slim\Behat\Context\App_ trait
 * Access the Slim 3 app using `$this->app`
 
+
+### Feature Context example
+
+Use the `logger` to log some text to ensure the extension works.
+
+> FeatureContext.php
+
+```php
+
+<?php
+
+use Behat\Behat\Tester\Exception\PendingException;
+use Behat\Behat\Context\Context;
+use Behat\Gherkin\Node\PyStringNode;
+use Behat\Gherkin\Node\TableNode;
+
+use Pavlakis\Slim\Behat\Context\App;
+use Pavlakis\Slim\Behat\Context\KernelAwareContext;
+
+class FeatureContext implements Context, KernelAwareContext
+{
+   use App;
+
+    /**
+     * @Then it works
+     */
+
+    public function itWorks()
+   {
+       /** @var \Psr\Log\LoggerInterface $logger */
+       $logger = $this->app->getContainer()->get('logger');
+       $logger->info("Slim-behat integration works!");
+   }
+
+    /**
+     * @Given I load the slim-behat extension
+     */
+    public function iLoadTheSlimBehatExtension()
+    {
+    }
+}
+
+```
+
+> test.feature
+
+```gherkin
+
+Feature: The extension works
+  In order to see this extension works
+  As a developer
+  I need to be see something happening 
+
+  Scenario: The extension works
+    Given I load the slim-behat extension
+    Then it works
+
+```
+
 ### Feature Context example using Mink
 
 ```php
 use Behat\Behat\Context\Context;
-use Behat\Behat\Context\SnippetAcceptingContext;
 
-use Behat\Behat\Hook\Scope\BeforeScenarioScope;
 use Behat\MinkExtension\Context\MinkContext;
 use Pavlakis\Slim\Behat\Context\App;
 use Pavlakis\Slim\Behat\Context\KernelAwareContext;
@@ -76,25 +133,18 @@ use Pavlakis\Slim\Behat\Context\KernelAwareContext;
 /**
  * Defines application features from the specific context.
  */
-class FeatureContext extends MinkContext implements Context, SnippetAcceptingContext, KernelAwareContext
+class FeatureContext extends MinkContext implements Context, KernelAwareContext
 {
     use App;
-
-    /**
-     * Initializes context.
-     *
-     * Every scenario gets its own context instance.
-     * You can also pass arbitrary arguments to the
-     * context constructor through behat.yml.
-     */
-    public function __construct()
-    {
-    }
 }
 
 ```
 
 ### Accessing your dependencies
 
-`$this->app->getContainer()->get('db')`
+```php
+
+$this->app->getContainer()
+
+```
 
